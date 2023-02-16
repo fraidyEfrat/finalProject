@@ -4,6 +4,9 @@ const ArticleRouter=express.Router();
 const articleController=require("../controllers/articleController");
 
 
+ArticleRouter.route("/search")
+    .get(articleController.getArticleBySearch)
+
 ArticleRouter.route("/")
     .get(articleController.getAllArticles)
     .post(articleController.addNewArticle)
@@ -14,8 +17,7 @@ ArticleRouter.route("/:idarticle")
     .get(articleController.getArticleById)
     .delete(articleController.deleteArticleById);
 
-ArticleRouter.route("/search")
-    .get(articleController.getArticleBySearch)
+
 // const articleRouter=new ArticleRouter();
 module.exports=ArticleRouter;
 
