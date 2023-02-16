@@ -4,7 +4,7 @@ const Article = db.article
 // @desc Get all articls
 // @route GET /aricle
 // @access Private
-
+//eeeeeeeeeeeeeeeee
 class ArticlesDataAccessor {
 
 getAllArticlesDal = async () => {

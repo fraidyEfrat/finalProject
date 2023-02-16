@@ -93,7 +93,9 @@ getArticleById = async (req, res) => {
     }
     res.json(article)
 }
-
+getArticleBySearch= async (req, res) => {
+    
+}
 
 }
  const articleController=new ArticleController();
