@@ -17,7 +17,7 @@ const {sequelize,DataTypes} = require('./sequelize');
                 allowNull: false,
             },
             role: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.ENUM('USER','VOLUNTEER','ADMIN'),
                 allowNull: false,
             },
             email: {

@@ -20,7 +20,7 @@ getAllSubject = async (req, res) => {
     const {idsubject,subject } = req.body
     console.log(req.body);
    
-    if (!idsubject) {
+    if (!subject) {
         console.log("ssssss")
         return res.status(400).json({
             message: 'All fields are required'

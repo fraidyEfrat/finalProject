@@ -21,6 +21,7 @@ const {sequelize,DataTypes} = require('./sequelize');
             },
             where: {
                 type: DataTypes.STRING,
+                type:DataTypes.ENUM('GENERAL','COMMUNITY_SHARED_KNOWLEDGE'),
                 allowNull: false,
             },
            
