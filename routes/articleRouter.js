@@ -2,7 +2,7 @@ const express = require("express");
 const ArticleRouter=express.Router();
 
 const articleController=require("../controllers/articleController");
-
+const verifyJWT = require("../middleware/verifyJWT")
 
 ArticleRouter.route("/search")
     .get(articleController.getArticleBySearch)

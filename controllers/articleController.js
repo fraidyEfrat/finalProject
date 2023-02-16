@@ -94,7 +94,6 @@ getArticleById = async (req, res) => {
     res.json(article)
 }
 getArticleBySearch= async (req, res) => {
-    console.log("1111111111111")
     const keyWord=req.query.keyWord;
     console.log(keyWord);
     const articlesFromSearch = await ArticleDal.getArticlesBySearchDal(keyWord);
