@@ -1,5 +1,5 @@
 var nodemailer = require('nodemailer');
-//💕💕💕💕
+
 // https://support.google.com/mail/answer/185833?hl=iw
 
 //'36214264632@mby.co.il'
