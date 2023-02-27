@@ -20,11 +20,11 @@ addNewUser_RequestDal = async (req, res) => {
     return res; 
 }
 
-getUsersEmailByIdDal=async (iduser) => {
-    console.log("2222211111111@@@@@@@22!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-    const res='36214264632@mby.co.il'
-    return res
-}
+// getUsersEmailByIdDal=async (iduser) => {
+//     console.log("2222211111111@@@@@@@22!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+//     const res='36214264632@mby.co.il'
+//     return res
+// }
 
 updateUser_RequestByIdDal = async (data, id) => {
     

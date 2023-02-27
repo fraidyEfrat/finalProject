@@ -93,7 +93,15 @@ getArticleById = async (req, res) => {
     }
     res.json(article)
 }
-
+getArticleBySearch= async (req, res) => {
+    const keyWord=req.query.keyWord;
+    console.log(keyWord);
+    const articlesFromSearch = await ArticleDal.getArticlesBySearchDal(keyWord);
+    if (articlesFromSearch.length >0)
+        res.send(articlesFromSearch)
+    else
+        return res.status(400).json({massage:`No articles were found for your search, please try again`})
+}
 
 }
  const articleController=new ArticleController();

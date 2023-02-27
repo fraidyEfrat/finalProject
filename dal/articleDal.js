@@ -1,4 +1,5 @@
 const db = require('../models/index')
+const{Op}=require('sequelize')
 const Article = db.article
 
 // @desc Get all articls
@@ -36,7 +37,21 @@ getArticleByIdDal=async(idarticle)=>{
     let res=await Article.findOne({where:{idarticle:idarticle}})
     return res
 }
+getArticlesBySearchDal=async(keyWord)=>{
+    return await Article.findAll({
+        where:
+        {
+            content:{[Op.like]:`%${keyWord}%`},
+          
+        }
+     })
+}
+
 }
 
 const articlesDataAccessor= new ArticlesDataAccessor();
 module.exports = articlesDataAccessor
+
+
+// [Op.or]:[{name:{[Op.like]:`%${keyWord}%`}},
+//             {company:{[Op.like]:`%${keyWord}%`}}]

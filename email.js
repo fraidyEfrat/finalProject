@@ -1,5 +1,5 @@
 var nodemailer = require('nodemailer');
-
+//💕💕💕💕
 // https://support.google.com/mail/answer/185833?hl=iw
 
 //'36214264632@mby.co.il'
@@ -18,16 +18,19 @@ var mailOptions = {
   text: 'That was easy!',
 };
 
-var sendEmail=(UsersEmail,iduser_request, subject, request, respond, date, status, iduser)=>{
+var sendEmail=(UsersEmail,iduser_request, subject, request, response, date, status, iduser)=>{
   console.log(UsersEmail)
 
   mailOptions.subject=`A new request #${iduser_request} from ${iduser}`
-  mailOptions.text=`${UsersEmail} ${subject}  ${request} ${respond} ${date}`;
+  mailOptions.text=`${UsersEmail} ${subject}  ${request} ${response} ${date}`;
   mailOptions.to=UsersEmail.toString();
   console.log(UsersEmail.toString())
 
   transporter.sendMail(mailOptions, function(error, info){
+  console.log("UsersEmail.toString()")
   if (error) {
+    console.log(error);
+    console.log(error);
     console.log(error);
   } else {
     console.log('Email sent: ' + info.response);

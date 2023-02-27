@@ -2,7 +2,7 @@ const express = require("express");
 const Community_shared_knowledgeRouter=express.Router();
 
 const Community_shared_knowledgeController=require("../controllers/community_shared_knowledgeController");
-
+const verifyJWT = require("../middleware/verifyJWT")
 
 Community_shared_knowledgeRouter.route("/")
     .get(Community_shared_knowledgeController.getAllCommunity_shared_knowledge)

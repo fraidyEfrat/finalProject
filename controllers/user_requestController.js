@@ -22,12 +22,13 @@ getAllUser_Requests = async (req, res) => {
 }
 
 addNewUser_Request = async (req, res) => {
-    const { subject, request, respond, date, status, iduser } = req.body
+    const { iduser_request,subject, request, response, date, status, iduser } = req.body
     console.log(req.body)
-
-    sendEmailToUser(subject, request, respond, date, status, iduser);
+    const UsersEmail=req.user.email;
+    console.log(UsersEmail)
+    sendEmailToUser(UsersEmail,iduser_request,subject, request, response, date, status, iduser);
     console.log(subject)
-    const user_request = await User_RequestDal.addNewUser_RequestDal({ subject, request, respond, date, status, iduser})
+    const user_request = await User_RequestDal.addNewUser_RequestDal({ subject, request, response, date, status, iduser})
     if (user_request) { // Created
         return res.status(201).json({ message: 'New user_request created' })
     } else {
@@ -39,14 +40,14 @@ addNewUser_Request = async (req, res) => {
 }
 
 updateUser_RequestById = async (req, res) => {
-    const { iduser_request, subject, request, respond, date, status, iduser} = req.body
+    const { iduser_request, subject, request, response, date, status, iduser} = req.body
     // Confirm data
     if (!iduser_request) {
         return res.status(400).json({
             message: 'All fields are required'
         })
     }
-    const user_request = await User_RequestDal.updateUser_RequestByIdDal({ subject, request, respond, date, status, iduser }, iduser_request  )
+    const user_request = await User_RequestDal.updateUser_RequestByIdDal({ subject, request, response, date, status, iduser }, iduser_request  )
     if (!user_request) {
         return res.status(400).json({ message: 'user_request not found' })
     }
@@ -67,14 +68,14 @@ deleteUser_RequestById = async (req, res) => {
 }
 
 ///function
-var sendEmailToUser=async(iduser_request, subject, request, respond, date, status, iduser)=>{
-    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",UsersEmail)
+var sendEmailToUser=async(UsersEmail,iduser_request, subject, request, response, date, status, iduser)=>{
+    //console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",UsersEmail)
     //var initiatorsEmails=initiatorsArr.map(async(initiator)=> {return await initiatorDal.getInitiatorEmailById(initiator)})
-    var UsersEmail = await User_RequestDal.getUsersEmailByIdDal(iduser)///////dal-user
+    //var UsersEmail = await User_RequestDal.getUsersEmailByIdDal(iduser)///////dal-user
     
     console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",UsersEmail)
    
-    sendEmail(UsersEmail,iduser_request, subject, request, respond, date, status, iduser);
+    sendEmail(UsersEmail,iduser_request, subject, request, response, date, status, iduser);
 
 }
 

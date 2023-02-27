@@ -2,7 +2,7 @@ const express = require("express");
 const LoginRouter=express.Router();
 
 const loginController=require("../controllers/loginController");
-
+const verifyJWT = require("../middleware/verifyJWT")
 
 LoginRouter.route("/")
     .get(loginController.getAllLogins)

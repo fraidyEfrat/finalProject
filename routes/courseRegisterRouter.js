@@ -2,7 +2,7 @@ const express = require("express");
 const CourseRegisterRouter=express.Router();
 
 const CourseRegisterController=require("../controllers/courseRegisterController");
-
+const verifyJWT = require("../middleware/verifyJWT")
 
  CourseRegisterRouter.route("/")
       .get(CourseRegisterController.getAllCourseRegisters)
