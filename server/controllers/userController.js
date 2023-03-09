@@ -19,14 +19,14 @@ getAllusers = async (req, res) => {
 
 }
 addNewUser = async (req, res) => {
-    const {firstName,lastName,email, city,address,id,phone,watsup } = req.body
+    const {firstName,lastName,email, city,address,id,phone,watsup,password,role } = req.body
     if (!id || !email ) {
         return res.status(400).json({
             message: 'All fields are required'
         })
     }
    
-    const user = await UserDal.addNewUserDal({firstName,lastName,email,city,address,id,phone,watsup})
+    const user = await UserDal.addNewUserDal({firstName,lastName,email,city,address,id,phone,watsup,password,role})
     if (user) { // Created
         return res.status(201).json({ message: 'New user created' })
     } else {
