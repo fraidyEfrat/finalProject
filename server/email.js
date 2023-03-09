@@ -25,10 +25,11 @@ var sendEmail=(UsersEmail,iduser_request, subject, request, response, date, stat
   mailOptions.text=`${UsersEmail} ${subject}  ${request} ${response} ${date}`;
   mailOptions.to=UsersEmail.toString();
   console.log(UsersEmail.toString())
-
+  console.log("vvvvvvvvvvvvvvvvv")
   transporter.sendMail(mailOptions, function(error, info){
   console.log("UsersEmail.toString()")
   if (error) {
+    console.log('Em');
     console.log(error);
     console.log(error);
     console.log(error);

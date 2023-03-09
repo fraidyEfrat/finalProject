@@ -39,7 +39,7 @@ const login = async (req, res) => {
 
 
 const register = async (req, res) => {
-    const {iduser, password, role,email} = req.body
+    const {iduser,firstName,lastName,email,city,dateOfBirth,address,id,phone,watsup,password,role} = req.body
 
     if (!password || !role || !email) {// Confirm data
         return res.status(400).json({ message: 'All fields are required' })
@@ -54,7 +54,7 @@ const register = async (req, res) => {
     //Hash password
     const hashedPwd = await bcrypt.hash(password, 10)
 
-    const loginObject = {iduser,role,email,password:hashedPwd}
+    const loginObject = {iduser,firstName,lastName,email,city,dateOfBirth,address,id,phone,watsup,password:hashedPwd,role}
     const mylogin = await User.create(loginObject)
     if (mylogin) { // Created 
         return res.status(201).json({ message: `New login ${mylogin.iduser} created` })
