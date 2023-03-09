@@ -49,6 +49,7 @@ const User = sequelize.define(
                 allowNull:true,
             },
             
+            
            
         },
         {

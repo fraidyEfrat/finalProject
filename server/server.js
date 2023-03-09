@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const corsOptions = require('./config/corsOptions')
 
-const PORT = process.env.PORT || 3600
+const PORT = process.env.PORT || 3000
 
 //middleware    כל הקריאות תוך כדי יכולות להשתמש בזה לכן נקרא כך
 app.use(cors(corsOptions))
