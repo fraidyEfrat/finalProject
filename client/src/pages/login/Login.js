@@ -5,9 +5,12 @@ import axios from "axios";
 
 
 const Login = ({name,age}) => {
+    const navigate = useNavigate()
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     const [err, setErr] = useState(null);
+
+
 
 
      const handleClick=async ()=>{
@@ -18,8 +21,8 @@ const Login = ({name,age}) => {
                });
                console.log(res.data)
                localStorage.setItem("token", JSON.stringify(res.data.accessToken));
-           
-             } catch (err) {
+               navigate("/");      
+                } catch (err) {
                setErr(err.response.data?.message);
              }
     }

@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Routes, Route, NavLink} from "react-router-dom"
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Home from './pages/home/Home';
+import UserRequest from './pages/userRequest/UserRequest';
 import "./App.css"
 function App() {
   const username="fraidy"
@@ -14,11 +15,14 @@ function App() {
           <NavLink to="/">דף הבית</NavLink>
           <NavLink to="/register">הרשמה</NavLink>
           <NavLink to="/login">כניסה</NavLink>
+          <NavLink to="/userRequest">איזור אישי</NavLink>
           </nav>
           <Routes>
           <Route path="/" element={<Home/>}></Route>
           <Route path="/login" element={<Login/>}></Route>
           <Route path="/register" element={<Register/>}></Route>
+           <Route path="/userRequest" element={<UserRequest/>}></Route> 
+
           </Routes>
           
 

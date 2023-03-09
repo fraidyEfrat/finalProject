@@ -24,7 +24,6 @@ app.use("/api/response_article", require("./routes/responseArticleRouter"));
 app.use("/api/search", require("./routes/searchRouter"));
 app.use("/api/donation", require("./routes/donationRouter"));
 app.use("/api/user", require("./routes/userRouter"));
-app.use("/api/login", require("./routes/loginRouter"));
 app.use("/api/community_shared_knowledge", require("./routes/community_shared_knowledgeRouter"));
 app.use("/api/user_request", require("./routes/user_requestRouter"));
 app.use("/api/subject", require("./routes/subjectRouter"));
