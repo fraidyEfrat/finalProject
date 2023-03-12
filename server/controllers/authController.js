@@ -1,7 +1,7 @@
 const db = require('../models/index')
 const bcrypt= require('bcrypt')
 const jwt= require('jsonwebtoken')
-const Login = db.login
+const User = db.user
 
 
 
@@ -13,7 +13,7 @@ const login = async (req, res) => {
         return res.status(400).json({ message: 'All fields are required' })
     }
 
-    const foundLogin = await Login.findOne({where:{email:email}})
+    const foundLogin = await User.findOne({where:{email:email}})
 //|| !foundLogin.active
     if (!foundLogin ) {
         return res.status(401).json({ message: 'Unauthorized111' })
@@ -26,7 +26,7 @@ const login = async (req, res) => {
 
     //ניצור אובייקט המכיל את הפרטים ללא הסיסמא
     //const loginInfo = {password, ...foundLogin}
-    const loginInfo= {idlogin:foundLogin.idlogin, iduser:foundLogin.iduser, role:foundLogin.role,email:foundLogin.email }
+    const loginInfo= { iduser:foundLogin.iduser, role:foundLogin.role,email:foundLogin.email }
     console.log(loginInfo)
      //Create the token
     const accessToken = jwt.sign(loginInfo,process.env.ACCESS_TOKEN_SECRET)
@@ -39,13 +39,13 @@ const login = async (req, res) => {
 
 
 const register = async (req, res) => {
-    const {idlogin, iduser, password, role,email} = req.body
+    const {iduser,firstName,lastName,email,city,dateOfBirth,address,id,phone,watsup,password,role} = req.body
 
     if (!password || !role || !email) {// Confirm data
         return res.status(400).json({ message: 'All fields are required' })
     }
 
-    const duplicate = await Login.findOne({where:{email:email}})
+    const duplicate = await User.findOne({where:{email:email}})
 
     if(duplicate){
         return res.status(409).json({message:"Duplicate email"})
@@ -54,8 +54,8 @@ const register = async (req, res) => {
     //Hash password
     const hashedPwd = await bcrypt.hash(password, 10)
 
-    const loginObject = {idlogin,iduser,role,email,password:hashedPwd}
-    const mylogin = await Login.create(loginObject)
+    const loginObject = {iduser,firstName,lastName,email,city,dateOfBirth,address,id,phone,watsup,password:hashedPwd,role}
+    const mylogin = await User.create(loginObject)
     if (mylogin) { // Created 
         return res.status(201).json({ message: `New login ${mylogin.iduser} created` })
     } else {

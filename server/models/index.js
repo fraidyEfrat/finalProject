@@ -13,7 +13,7 @@ db.responseArticle = require('./responseArticle')
 db.search = require('./search')
 db.donation = require('./donation')
 db.user = require('./user')
-db.login=require('./login')
+
 db.community_donation=require('./community_shared_knowledge')
 db.user_request=require('./user_request')
 db.subject=require('./subject')
