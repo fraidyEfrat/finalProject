@@ -17,6 +17,7 @@ getAllUser_RequestsDal = async () => {
 
 addNewUser_RequestDal = async (req, res) => {
     res=await User_Request.create(req);
+    console.log(res);
     return res; 
 }
 
