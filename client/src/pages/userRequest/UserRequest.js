@@ -7,6 +7,7 @@ import axios from "axios";
 const UserRequest = ({name,age}) => {
   const navigate = useNavigate()
   const [request,setRequest]=useState("");
+  const [subject,setSubject]=useState("");
   const [err, setErr] = useState(null);
 
 
@@ -19,8 +20,11 @@ const UserRequest = ({name,age}) => {
               headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
               }
-          }    
-        const res = await axios.post("http://localhost:3600/api/user_request",  {request}, config);
+          } 
+        const data=new Date;
+        const status="request:sent";
+        console.log(data);
+        await axios.post("http://localhost:3600/api/user_request",  {subject,request,data}, config);
         navigate("/")
       } catch (err) {
         console.log(err);
@@ -50,8 +54,11 @@ return (
   
    <div className="user-request-page">
     <h1>אזור אישי</h1>
-      <input onChange={(e)=>{setRequest(e.target.value)}} type="text" placeholder=" נא לכתוב את שאלה כאן " ></input>
-      <button onClick={handleClick}>שליחת השאלה</button> 
+      
+      <input onChange={(e)=>{setSubject(e.target.value)}} type="text" placeholder=" נא לכתוב את נושא השאלה כאן " ></input><br/><br/>
+      <input onChange={(e)=>{setRequest(e.target.value)}} type="text" placeholder=" נא לכתוב את שאלה כאן " ></input><br/><br/>
+      <button onClick={handleClick}>שליחת השאלה</button> <br/><br/>
+      <label> בקשתך נשלחה בהצלחה ניידעך במייל כאשר בקשתך תטופל בהקדם בהצלחה יום נעים מתנדבות מרכז מידע לבריאות האישה בני-ברק</label>
       
       </div>
     /*
