@@ -5,6 +5,7 @@ import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Home from './pages/home/Home';
 import UserRequest from './pages/userRequest/UserRequest';
+import Articles from './pages/articles/Articles';
 import "./App.css"
 function App() {
   const username="fraidy"
@@ -16,13 +17,14 @@ function App() {
           <NavLink to="/register">הרשמה</NavLink>
           <NavLink to="/login">כניסה</NavLink>
           <NavLink to="/userRequest">איזור אישי</NavLink>
+          <NavLink to="/articles">מאמרים</NavLink>
           </nav>
           <Routes>
           <Route path="/" element={<Home/>}></Route>
           <Route path="/login" element={<Login/>}></Route>
           <Route path="/register" element={<Register/>}></Route>
-           <Route path="/userRequest" element={<UserRequest/>}></Route> 
-
+          <Route path="/userRequest" element={<UserRequest/>}></Route> 
+          <Route path="/articles" element={<Articles/>}></Route> 
           </Routes>
           
 

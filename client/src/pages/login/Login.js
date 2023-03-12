@@ -21,7 +21,7 @@ const Login = ({name,age}) => {
                });
                console.log(res.data)
                localStorage.setItem("token", JSON.stringify(res.data.accessToken));
-               navigate("/");      
+               navigate("/userRequest");      
                 } catch (err) {
                setErr(err.response.data?.message);
              }
@@ -35,8 +35,8 @@ const Login = ({name,age}) => {
 return (
     
      <div className="login-page">
-        <h1>Login{name}the age is{age}</h1>
-    
+        <h1>Login </h1>
+                        
         <input onChange={(e)=>{setEmail(e.target.value)}} type="text" placeholder="email" ></input>
         <input onChange={(e)=>{setPassword(e.target.value)}} type="text" placeholder="password"></input> 
         <button onClick={handleClick}>login</button> 
