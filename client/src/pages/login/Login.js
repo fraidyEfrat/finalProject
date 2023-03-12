@@ -16,11 +16,11 @@ const Login = ({name,age}) => {
      const handleClick=async ()=>{
           console.log("in handleClick");
           try {      
-               const res = await axios.post("http://localhost:3000/api/user/login",  { email, password}, {
+               const res = await axios.post("http://localhost:3600/api/auth/login",  { email, password}, {
                  withCredentials: true,
                });
                console.log(res.data)
-               localStorage.setItem("token", JSON.stringify(res.data.accessToken));
+               localStorage.setItem("token", res.data.accessToken);
                navigate("/");      
                 } catch (err) {
                setErr(err.response.data?.message);

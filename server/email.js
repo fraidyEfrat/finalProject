@@ -13,7 +13,7 @@ var transporter = nodemailer.createTransport({
 
 var mailOptions = {
   from: process.env.USER_MAIL,
-  to: '36214264632@mby.co.il, 36213528524@mby.co.il',
+  to: '36214264632@mby.co.il',
   subject: 'Sending Email using Node.js',
   text: 'That was easy!',
 };
@@ -24,7 +24,8 @@ var sendEmail=(UsersEmail,iduser_request, subject, request, response, date, stat
   mailOptions.subject=`A new request #${iduser_request} from ${iduser}`
   mailOptions.text=`${UsersEmail} ${subject}  ${request} ${response} ${date}`;
   mailOptions.to=UsersEmail.toString();
-  console.log(UsersEmail.toString())
+  console.log(UsersEmail)
+  console.log(UsersEmail,subject,request,response,date)
   console.log("vvvvvvvvvvvvvvvvv")
   transporter.sendMail(mailOptions, function(error, info){
   console.log("UsersEmail.toString()")

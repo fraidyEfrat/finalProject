@@ -13,25 +13,46 @@ const UserRequest = ({name,age}) => {
 
 
    const handleClick=async ()=>{
-        console.log("in handleClick");
-        try {      
-             const res = await axios.post("http://localhost:3000/api//user_request",  {request}, {
-               withCredentials: true,
-             });
-             console.log(res.data)
-             localStorage.setItem("token", JSON.stringify(res.data.accessToken));
-             navigate("/");      
-              } catch (err) {
-             setErr(err.response.data?.message);
-           }
-  }
+    //e.preventDefault();
+      try {  
+          let config = {
+              headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
+              }
+          }    
+        const res = await axios.post("http://localhost:3600/api/user_request",  {request}, config);
+        navigate("/")
+      } catch (err) {
+        console.log(err);
+        setErr(err.response.data?.message);
+      }
+    };
+  //       console.log("in handleClick");
+  //       try {  
+          
+          
+
+
+          
+  //            const res = await axios.post("http://localhost:3600/api/user_request",  {request}, {
+  //              withCredentials: true,
+  //            });
+  //            console.log(res.data)
+
+  //            localStorage.setItem("token", JSON.stringify(res.data.accessToken));
+  //            navigate("/");      
+  //             } catch (err) {
+  //            setErr(err.response.data?.message);
+  //          }
+  // }
   
 return (
   
-   <div className="login-page">
+   <div className="user-request-page">
     <h1>אזור אישי</h1>
-      <input onChange={(e)=>{setRequest(e.target.value)}} type="text" placeholder="request" ></input>
-      <button onClick={handleClick}>send request</button> 
+      <input onChange={(e)=>{setRequest(e.target.value)}} type="text" placeholder=" נא לכתוב את שאלה כאן " ></input>
+      <button onClick={handleClick}>שליחת השאלה</button> 
+      
       </div>
     /*
      

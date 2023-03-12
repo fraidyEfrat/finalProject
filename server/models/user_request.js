@@ -10,28 +10,28 @@
             },
             subject: {
                 type: DataTypes.STRING,
-                allowNull: false,
+                
             },
 
             request: {
                 type: DataTypes.STRING,
-                allowNull: false,
+                
             },
             response: {
                 type: DataTypes.STRING,
-                allowNull: false,
+                
             },
             date: {
                 type: DataTypes.STRING,
-                allowNull: false,
+                
             },
             status: {
                 type: DataTypes.STRING,
-                allowNull: false,
+                
             },
             iduser: {
                 type: DataTypes.INTEGER,
-                allowNull: false,
+                
             },
            
         },
