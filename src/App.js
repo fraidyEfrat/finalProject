@@ -5,6 +5,11 @@ import Home from './pages/home';
 import Request from './pages/user/request';
 import Articles from './pages/articles/Articles';
 
+
+import ArticlesList from './pages/articleRating';
+//import RatingArticle from "./pages/articleRating/ratingArticle";
+
+
 import "./App.css"
 
 
@@ -19,6 +24,7 @@ function App() {
           <NavLink to="/login">כניסה</NavLink>
           <NavLink to="/request">איזור אישי</NavLink>
           <NavLink to="/articles">מאמרים</NavLink>
+          <NavLink to="/article">מאמר</NavLink>
           </nav>
           <Routes>
           <Route path="/" element={<Home/>}></Route>
@@ -26,6 +32,7 @@ function App() {
           <Route path="/register" element={<Register/>}></Route>
           <Route path="/request" element={<Request/>}></Route> 
           <Route path="/articles" element={<Articles/>}></Route> 
+          <Route path="/article" element={<ArticlesList/>}></Route> 
           </Routes>
           
 
