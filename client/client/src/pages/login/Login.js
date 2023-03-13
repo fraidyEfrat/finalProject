@@ -20,13 +20,10 @@ const Login = ({name,age}) => {
                  withCredentials: true,
                });
                console.log(res.data)
-<<<<<<< HEAD
                localStorage.setItem("token", JSON.stringify(res.data.accessToken));
                navigate("/userRequest");      
-=======
                localStorage.setItem("token", res.data.accessToken);
                navigate("/");      
->>>>>>> aac6ed6ce5001ee38a73e91990588908ca664b25
                 } catch (err) {
                setErr(err.response.data?.message);
              }

@@ -21,9 +21,6 @@ const {sequelize,DataTypes} = require('./sequelize');
                 type: DataTypes.INTEGER,
                 allowNull: false,
             },
-            stars:{
-                type: DataTypes.FLOAT,
-            },
             iduser: {
                 type: DataTypes.INTEGER,
                 allowNull: false,

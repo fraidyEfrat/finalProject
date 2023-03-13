@@ -1,38 +1,36 @@
 const {sequelize,DataTypes} = require('./sequelize');
 
-    const ResponseArticle = sequelize.define(
-        "response_article",
+
+
+    const Search = sequelize.define(
+        "search",
         {
-            idresponse: {
+            idsearch: {
                 type: DataTypes.INTEGER,
                 autoIncrement: true,
                 primaryKey: true
             },
 
-            date: {
-                type: DataTypes.STRING,
+            iduser: {
+                type: DataTypes.INTEGER,
                 allowNull: true,
             },
             content: {
                 type: DataTypes.STRING,
                 allowNull: true,
             },
-            idarticle: {
-                type: DataTypes.INTEGER,
+            where: {
+                type: DataTypes.STRING,
+                type:DataTypes.ENUM('GENERAL','COMMUNITY_SHARED_KNOWLEDGE'),
                 allowNull: false,
             },
-            stars:{
-                type: DataTypes.FLOAT,
-            },
-            iduser: {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-            }
+           
             
         },
         {
             timestamps: false,
         }
     );
+    module.exports=Search
 
-  module.exports=ResponseArticle
+   

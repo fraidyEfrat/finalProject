@@ -29,8 +29,8 @@ const {sequelize,DataTypes} = require('./sequelize');
                 type: DataTypes.STRING,
                 allowNull: false,
             },
-            rating: {
-                type: DataTypes.FLOAT,
+            grade: {
+                type: DataTypes.INTEGER,
                 allowNull: true
             },
         },
