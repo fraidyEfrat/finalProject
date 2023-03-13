@@ -24,6 +24,7 @@ getAllUser_Requests = async (req, res) => {
 addNewUser_Request = async (req, res) => {
     const { iduser_request,subject, request, response, date, status, iduser } = req.body
     console.log(req.body)
+    console.log(iduser_request)
     const UsersEmail=req.user.email;
     console.log(UsersEmail)
     sendEmailToUser(UsersEmail,iduser_request,subject, request, response, date, status, iduser);
