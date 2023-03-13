@@ -11,7 +11,7 @@ ArticleRouter.route("/")
     .get(articleController.getAllArticles)
     .post(articleController.addNewArticle)
     .put(articleController.updateArticleById)
-    .get(articleController.getArticesBySubject);
+    //.get(articleController.getArticesBySubject);
 
 ArticleRouter.route("/:idarticle")
     .get(articleController.getArticleById)
