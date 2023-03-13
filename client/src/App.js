@@ -3,14 +3,9 @@ import './App.css';
 import {BrowserRouter as Router, Routes, Route, NavLink} from "react-router-dom"
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
-<<<<<<< HEAD
 import Home from './pages/home';
 import UserRequest from './pages/שואל/Request';
-=======
-import Home from './pages/home/Home';
-import UserRequest from './pages/userRequest/UserRequest';
-import Articles from './pages/articles/Articles';
->>>>>>> 5a25300f8dded1b82517562b09ef01b760b2af81
+import Articles from './pages/articles';
 import "./App.css"
 function App() {
   const username="fraidy"
